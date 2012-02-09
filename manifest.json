@@ -15,15 +15,12 @@
     "task":{
       "command" : "/sms/send_sms",    
       "inputs" :  {
-		    "host" : {"value" : "", "type" : "String", "required" : true},
-			"email":{"value" : "", "type" : "Email", "required" : true},
+		    "username" : {"value" : "", "type" : "String", "required" : true},
 			"password":{"value" : "", "type" : "Password", "required" : true},
-			"name":{"value" : "", "type" : "String", "required" : true},
-			"description":{"value" : "", "type" : "String", "required" : false},
-			"domain":{"value" : "", "type" : "String", "required" : true},			
-			"compute_type_ids":{"value" : "", "type" : "Array", "required" : true}
+			"to":{"value" : "", "type" : "String", "required" : true},
+			"body":{"value" : "", "type" : "String", "required" : false},
+			"number":{"value" : "", "type" : "String", "required" : true},			
 		},
-      "outputs" : {"cloud" : {"type" : "Hash"}},
-      "tool_name":"Notification"
+		"tool_name":"Notification"
     }
 }]
