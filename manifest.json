@@ -21,6 +21,7 @@
 			"body":{"value" : "", "type" : "String", "required" : false},
 			"number":{"value" : "", "type" : "String", "required" : true},			
 		},
-		"tool_name":"Notification"
+      "outputs" : {"output" : {"type" : "Hash"}},
+      "tool_name":"Notification"
     }
 }]
