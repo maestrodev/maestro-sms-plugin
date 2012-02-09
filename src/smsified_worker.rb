@@ -20,12 +20,12 @@ module MaestroDev
       oneapi = Smsified::OneAPI.new(:username => workitem['fields']['username'],
                                     :password => workitem['fields']['password'])
 
-      r = oneapi.send_sms :address => workitem.fields['to'],
-                          :message => workitem.fields['body'],
-                          :sender_address => Maestro.sms_config['number']
+      r = oneapi.send_sms :address => workitem['fields']['to'],
+                          :message => workitem['fields']['body'],
+                          :sender_address => workitem['fields']['number']
 
       if r.http.is_a? Net::HTTPCreated
-        write_output "SMS sent to #{workitem.fields['to']} with #{workitem.fields['body']}\n"
+        write_output "SMS sent to #{workitem['fields']['to']} with #{workitem['fields']['body']}\n"
         write_output "#{r.http.class}:#{r.data['resourceReference']}"
 
         return true
