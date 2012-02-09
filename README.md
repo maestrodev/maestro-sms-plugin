@@ -1,0 +1,1 @@
+Maestro plugin to send SMS messages through the SMSified gateway.

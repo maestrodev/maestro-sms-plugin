@@ -1,0 +1,29 @@
+[{
+    "name" : "smsified",
+    "description" : "Send a SMS message through SMSifified",
+    "author": "Kit Plummer",
+    "version": "1.0",
+    "class": "MaestroDev::SmsifiedWorker",
+    "type":"ruby",
+    "dependencies":[
+		{
+			"name" : "smsified",
+			"version" : "0.1.7",
+			"source" : "http://rubygems.org/"
+		}
+  	],
+    "task":{
+      "command" : "/sms/send_sms",    
+      "inputs" :  {
+		    "host" : {"value" : "", "type" : "String", "required" : true},
+			"email":{"value" : "", "type" : "Email", "required" : true},
+			"password":{"value" : "", "type" : "Password", "required" : true},
+			"name":{"value" : "", "type" : "String", "required" : true},
+			"description":{"value" : "", "type" : "String", "required" : false},
+			"domain":{"value" : "", "type" : "String", "required" : true},			
+			"compute_type_ids":{"value" : "", "type" : "Array", "required" : true}
+		},
+      "outputs" : {"cloud" : {"type" : "Hash"}},
+      "tool_name":"Notification"
+    }
+}]
