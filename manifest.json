@@ -19,7 +19,7 @@
 			"password":{"value" : "", "type" : "Password", "required" : true},
 			"to":{"value" : "", "type" : "String", "required" : true},
 			"body":{"value" : "", "type" : "String", "required" : false},
-			"number":{"value" : "", "type" : "String", "required" : true},			
+			"number":{"value" : "", "type" : "String", "required" : true}			
 		},
       "outputs" : {"output" : {"type" : "Hash"}},
       "tool_name":"Notification"
