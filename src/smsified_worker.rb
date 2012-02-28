@@ -9,6 +9,9 @@ module MaestroDev
       fields.each do |field|
         workitem['fields']['__error__'] += "Missing Field #{field}, " if workitem['fields'][field].nil? or workitem['fields'][field].to_s.empty?
       end
+      if !workitem['fields']['body'].nil? && workitem['fields']['body'].length > 140
+        workitem['fields']['__error__'] = 'Invalid body, over 140 chars'
+      end
     end
     
     def send_sms
@@ -20,10 +23,11 @@ module MaestroDev
       oneapi = Smsified::OneAPI.new(:username => workitem['fields']['username'],
                                     :password => workitem['fields']['password'])
 
-      r = oneapi.send_sms :address => workitem['fields']['to'],
+      r = oneapi.send_sms(:address => workitem['fields']['to'],
                           :message => workitem['fields']['body'],
-                          :sender_address => workitem['fields']['number']
+                          :sender_address => workitem['fields']['number'])
 
+      puts "R: #{r.http}"
       if r.http.is_a? Net::HTTPCreated
         write_output "SMS sent to #{workitem['fields']['to']} with #{workitem['fields']['body']}\n"
         write_output "#{r.http.class}:#{r.data['resourceReference']}"
