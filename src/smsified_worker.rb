@@ -16,7 +16,7 @@ module MaestroDev
     
     def send_sms
       
-      write_output("Validating Inputs\n")
+      write_output("Validating SMS task inputs\n")
       validate_input_fields(['username','password','body','to','number'])
       return unless workitem['fields']['__error__'].empty?
       
@@ -34,16 +34,16 @@ module MaestroDev
         return true
 
       elsif r.http.is_a? Net::HTTPUnauthorized
-        write_output "Invalid credentials for sending SMS, check configuration.\n"
         workitem['fields']['__error__'] = "Invalid credentials for sending SMS, check configuration."
 
       elsif r.http.is_a? Net::HTTPBadRequest
         workitem['fields']['__error__'] = "Invalid (from) number for credentials used, check configuration."
+        
       else
         workitem['fields']['__error__'] = "Failed to send SMS"
       end
-    end
-    
-    
+
+      write_output workitem['fields']['__error__']
+    end    
   end
 end

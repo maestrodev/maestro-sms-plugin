@@ -1,6 +1,7 @@
 [{
     "name" : "smsified",
     "description" : "Send a SMS message through SMSifified",
+    "license" : "Apache 2.0",
     "author": "Kit Plummer",
     "version": "1.0-SNAPSHOT",
     "class": "MaestroDev::SmsifiedWorker",
@@ -21,7 +22,7 @@
   			"body":{"value" : "", "type" : "String", "required" : false},
   			"number":{"value" : "", "type" : "String", "required" : true}			
 		},
-      "outputs" : {"output" : {"type" : "Hash"}},
+      "outputs" : {"output" : {"type" : "String"}},
       "tool_name":"Notification"
     }
 }]
