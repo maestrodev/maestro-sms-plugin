@@ -2,24 +2,24 @@
     "name" : "smsified",
     "description" : "Send a SMS message through SMSifified",
     "author": "Kit Plummer",
-    "version": "1.0",
+    "version": "1.0-SNAPSHOT",
     "class": "MaestroDev::SmsifiedWorker",
     "type":"ruby",
     "dependencies":[
-		{
-			"name" : "smsified",
-			"version" : "0.1.7",
-			"source" : "http://rubygems.org/"
-		}
+  		{
+  			"name" : "smsified",
+  			"version" : "0.1.7",
+  			"source" : "http://rubygems.org/"
+  		}
   	],
     "task":{
       "command" : "/sms/send_sms",    
       "inputs" :  {
 		    "username" : {"value" : "", "type" : "String", "required" : true},
-			"password":{"value" : "", "type" : "Password", "required" : true},
-			"to":{"value" : "", "type" : "String", "required" : true},
-			"body":{"value" : "", "type" : "String", "required" : false},
-			"number":{"value" : "", "type" : "String", "required" : true}			
+  			"password":{"value" : "", "type" : "Password", "required" : true},
+  			"to":{"value" : "", "type" : "String", "required" : true},
+  			"body":{"value" : "", "type" : "String", "required" : false},
+  			"number":{"value" : "", "type" : "String", "required" : true}			
 		},
       "outputs" : {"output" : {"type" : "Hash"}},
       "tool_name":"Notification"

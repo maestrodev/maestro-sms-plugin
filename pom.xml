@@ -27,6 +27,7 @@
 
   <build>
     <plugins>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>2.6</version>
@@ -35,7 +36,7 @@
           <artifactId>${project.artifactId}</artifactId>
           <version>${project.version}</version>
           <url>${repository.url}</url>
-          <file>${basedir}/target/maestro-irc-plugin-${project.version}-bin.zip</file>
+          <file>${basedir}/pkg/maestro-sms-plugin-${project.version}.zip</file>
           <uniqueVersion>true</uniqueVersion>
           <packaging>zip</packaging>
           <repositoryId>maestro-deploy</repositoryId>

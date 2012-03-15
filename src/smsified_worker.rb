@@ -26,8 +26,7 @@ module MaestroDev
       r = oneapi.send_sms(:address => workitem['fields']['to'],
                           :message => workitem['fields']['body'],
                           :sender_address => workitem['fields']['number'])
-
-      puts "R: #{r.http}"
+      
       if r.http.is_a? Net::HTTPCreated
         write_output "SMS sent to #{workitem['fields']['to']} with #{workitem['fields']['body']}\n"
         write_output "#{r.http.class}:#{r.data['resourceReference']}"
@@ -39,7 +38,6 @@ module MaestroDev
         workitem['fields']['__error__'] = "Invalid credentials for sending SMS, check configuration."
 
       elsif r.http.is_a? Net::HTTPBadRequest
-        Maestro.log.error "Invalid (from) number for credentials used, check configuration."
         workitem['fields']['__error__'] = "Invalid (from) number for credentials used, check configuration."
       else
         workitem['fields']['__error__'] = "Failed to send SMS"

@@ -58,8 +58,15 @@ describe MaestroDev::SmsifiedWorker do
                                "password" => "joe",
                                "number" => "15551212"}}
       @testee.stub(:workitem).and_return(workitem)
-      # Should return Net::HTTPNotAuthorized
-      @testee.stub_chain(:send_sms, :r,:http, :is_a?).and_return(Net::HTTPUnauthorized)
+
+      oneapi = double("oneapi")
+      Smsified::OneAPI.stub(:new).and_return(oneapi)
+
+      response = Object.new
+      response.stub(:data).and_return("kit")
+      response.stub(:http).and_return(Net::HTTPUnauthorized.new("4.0.1","401","Failed"))
+      oneapi.should_receive(:send_sms).and_return(response)
+
       @testee.send_sms
       workitem['fields']['__error__'].should eql("Invalid credentials for sending SMS, check configuration.")
     end
@@ -71,6 +78,16 @@ describe MaestroDev::SmsifiedWorker do
                                "password" => "joe",
                                "number" => "15551212"}}
       @testee.stub(:workitem).and_return(workitem)
+
+      # https://github.com/smsified/smsified-ruby/blob/master/lib/smsified/response.rb
+      #Smsified::Response.stub_chain(:http,:is_a?).and_return(Net::HTTPBadRequest)
+      oneapi = double("oneapi")
+      Smsified::OneAPI.stub(:new).and_return(oneapi)
+
+      response = Object.new
+      response.stub(:data).and_return("kit")
+      response.stub(:http).and_return(Net::HTTPBadRequest.new("4.0.1","400","Failed"))
+      oneapi.should_receive(:send_sms).and_return(response)
       @testee.send_sms
       workitem['fields']['__error__'].should eql("Invalid (from) number for credentials used, check configuration.")
     end
@@ -82,7 +99,14 @@ describe MaestroDev::SmsifiedWorker do
                                "password" => "joe",
                                "number" => "15551212"}}
       @testee.stub(:workitem).and_return(workitem)
+      oneapi = double("oneapi")
+      Smsified::OneAPI.stub(:new).and_return(oneapi)
 
+      response = Object.new
+
+      response.stub(:data).and_return("kit")
+      response.stub(:http).and_return(Net::HTTPCreated.new("4.0.1","200","Success"))
+      oneapi.should_receive(:send_sms).and_return(response)
       @testee.send_sms
       workitem['fields']['__error__'].should eql('')
     end
