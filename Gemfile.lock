@@ -141,6 +141,7 @@ DEPENDENCIES
   bundler (= 1.0.22)
   maestro_agent (= 0.0.15.snapshot)
   mocha (= 0.10.0)
+  rake
   rcov (= 0.9.11)
   rspec
   rspec-core

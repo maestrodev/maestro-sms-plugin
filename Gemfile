@@ -2,9 +2,9 @@ source :rubygems
 source "http://maestro:maestro@lucee.maestrodev.net:8081/"
 
 gem 'bundler', '1.0.22'
+gem 'rake'
 
 gem 'maestro_agent', '0.0.15.snapshot'
-#gem 'maestro_agent', :path => '../MaestroAgent'
 
 #dependencies
 gem "smsified", "0.1.7"
