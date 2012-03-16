@@ -132,6 +132,8 @@ GEM
     tins (0.3.10)
     tzinfo (0.3.32)
     xml-simple (1.1.1)
+    zippy (0.2.0)
+      rubyzip (>= 0.9.1)
 
 PLATFORMS
   java
@@ -146,3 +148,4 @@ DEPENDENCIES
   rspec
   rspec-core
   smsified (= 0.1.7)
+  zippy

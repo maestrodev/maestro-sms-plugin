@@ -3,6 +3,7 @@ source "http://maestro:maestro@lucee.maestrodev.net:8081/"
 
 gem 'bundler', '1.0.22'
 gem 'rake'
+gem 'zippy'
 
 gem 'maestro_agent', '0.0.15.snapshot'
 
