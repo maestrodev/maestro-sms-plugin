@@ -3,3 +3,4 @@ vendor/
 target/
 package/
 .bundle/
+maestro-sms-plugin*zip

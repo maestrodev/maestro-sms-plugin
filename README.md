@@ -56,7 +56,7 @@ $ bundle package
 $ bundle exec rake package
 ```
 
-In ```pkg/``` you'll get a ```maestro-sms-plugin-${version}.zip``` file.
+You'll get a ```maestro-sms-plugin-${version}.zip``` file.
 
 ## Deploying
 Deploying a Maestro plugin is super simple.  Just drop it in Maestro's configured plugins subdirectory (which is specified in the maestro_lucee.json configuration file).  By default it would be ```/etc/maestro/plugins/```.
