@@ -46,10 +46,7 @@ module MaestroDev
       
       if r.http.is_a? Net::HTTPCreated
         write_output "SMS sent to #{workitem['fields']['to']} with #{workitem['fields']['body']}\n"
-        write_output "#{r.http.class}:#{r.data['resourceReference']}"
-
         return true
-
       elsif r.http.is_a? Net::HTTPUnauthorized
         workitem['fields']['__error__'] = "Invalid credentials for sending SMS, check configuration."
 
