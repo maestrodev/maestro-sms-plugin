@@ -49,6 +49,14 @@ Next, we'll run the tests:
 ```
 $ bundle exec rake spec
 ```
+
+Because we don't want the test and development gems in the package, let's remove them (way harder than it should be).
+
+```
+$ rm -rf .bundle
+$ bundle install --without test,development
+```
+
 Then, we need to package up the plugin for deployment:
 
 ```

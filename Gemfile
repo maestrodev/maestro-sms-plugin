@@ -10,7 +10,7 @@ gem 'maestro_agent', '0.1.1.snapshot'
 #dependencies
 gem "smsified", "0.1.7.maestro"
 
-group :test do
+group :test, :development do
   gem 'rspec'
   gem 'rspec-core'
   gem 'rcov', '0.9.11'

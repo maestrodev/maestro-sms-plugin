@@ -15,6 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
+require 'rubygems'
 require 'smsified'
 require 'maestro_agent'
 
