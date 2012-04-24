@@ -8,7 +8,7 @@ gem 'zippy'
 gem 'maestro_agent', '0.0.15.snapshot'
 
 #dependencies
-gem "smsified", "0.1.7"
+gem "smsified", "0.1.7.maestro"
 
 group :test do
   gem 'rspec'
