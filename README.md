@@ -54,7 +54,7 @@ Because we don't want the test and development gems in the package, let's remove
 
 ```
 $ rm -rf .bundle
-$ bundle install --without test,development
+$ bundle install --without test development
 ```
 
 Then, we need to package up the plugin for deployment:
