@@ -41,6 +41,13 @@ module MaestroDev
       oneapi = Smsified::OneAPI.new(:username => workitem['fields']['username'],
                                     :password => workitem['fields']['password'])
 
+      ##
+      # Accommodate an HTTPS proxy setting
+      if proxy = ENV['HTTPS_PROXY']
+        proxy = URI.parse(proxy)
+        Smsified::OneAPI.http_proxy proxy.host, proxy.port
+      end
+
       r = oneapi.send_sms(:address => workitem['fields']['to'],
                           :message => workitem['fields']['body'],
                           :sender_address => workitem['fields']['number'])

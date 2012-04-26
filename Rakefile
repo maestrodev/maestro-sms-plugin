@@ -53,7 +53,7 @@ end
 
 desc "Package plugin zip"
 task :package do
-  Zippy.create 'maestro-sms-plugin-1.0-SNAPSHOT.zip' do |z|
+  Zippy.create 'maestro-sms-plugin-1.1-SNAPSHOT.zip' do |z|
     add_dir z, '.', 'vendor'
     add_file z, '.', 'manifest.json'
     add_file z, '.', 'README.md'
