@@ -1,5 +1,4 @@
 source :rubygems
-source "http://maestro:maestro@lucee.maestrodev.net:8081/"
 
 gem 'bundler', '>=1.0.21'
 gem 'rake'
