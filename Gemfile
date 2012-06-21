@@ -4,7 +4,7 @@ gem 'bundler', '>=1.0.21'
 gem 'rake'
 gem 'zippy'
 
-gem 'maestro_agent', '0.1.1.snapshot'
+gem 'maestro_agent', '0.1.4.snapshot'
 
 #dependencies
 gem "smsified", "0.1.7"
