@@ -4,3 +4,5 @@ target/
 package/
 .bundle/
 maestro-sms-plugin*zip
+manifest.json
+

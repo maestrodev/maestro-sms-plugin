@@ -17,7 +17,7 @@
 
 require 'rubygems'
 require 'smsified'
-require 'maestro_agent'
+require 'maestro_plugin'
 
 module MaestroDev
   class SmsifiedWorker < Maestro::MaestroWorker
